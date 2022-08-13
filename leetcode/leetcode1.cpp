@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> TwoSum(vector<int>& nums, int target)
+{
+  unordered_map<int, int> hash;
+  int n = nums.size();
+  for (int i = 0; i<=n; ++i) {
+    auto rem = hash.find(target - nums[i]);
+        
+    if (rem != hash.end()) 
+      return vector<int> {i, rem->second};
+            
+    hash[nums[i]] = i;
+  }
+  return vector<int> {0,0};
+}
+
+struct ListNode
+{
+  int val;
+  ListNode *next;
+  ListNode() : val(0), next(nullptr) {}
+  ListNode(int x) : val(x), next(nullptr) {}
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
+{
+  int carry = 0;
+  int sum = 0;
+  sum = (l1->val + l2->val);
+  int NewVal = sum%10;
+  carry = sum/10;
+  return 0;
+}
+    
+  
+int main(){
+  vector<int> nums = {1, 1, 1, 1};
+
+  int target = 26;
+  vector<int> ans = TwoSum(nums, target);
+  for (auto n : ans){
+    cout << n << " ";
+  }
+  return 0;
+}
