@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+#include<algorithm>
+using namespace std;
+
+// Lexicographically Next Permutation in C++
+// Sorting from increasing order array to decreasing order is Lexicographically next permutation
+// abc -> acb -> bac -> cba  
+
+
+void nextPermutation(vector<int>& nums)
+{
+  int i=0,j=0;
+  while(next_permutation(nums.begin(), nums.end()) != false){
+    for(auto n : nums){
+      cout << n << ' ';
+    }
+    cout << '\n';
+  }
+  reverse(nums.begin() + i, nums.end() + j);
+  for(auto n : nums){
+    cout << n << ' ';
+  }
+
+}
+int main()
+{
+  vector<int> nums = {1,2,3};
+  nextPermutation(nums);
+  return 0;
+}
