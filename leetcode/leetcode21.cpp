@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+struct ListNode
+{
+  int val;
+  ListNode *next;
+  ListNode() : val(0), next(nullptr) {}
+  ListNode(int x) : val(x), next(nullptr) {}
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+ListNode* mergeTwoLists(ListNode *l1, ListNode *l2)
+{
+  if(l1==NULL) return l2;
+  if(l2==NULL) return l1;
+
+  if((l1->val)>(l2->val)){
+    l2->next = mergeTwoLists(l1, l2->next);
+    return l2;
+  }
+  else{
+    l1->next = mergeTwoLists(l1->next, l2);
+    return l1;
+  }
+}
+
+void printList(ListNode *l)
+{
+  while(l){
+    cout<<l->val<<' ';
+    l=l->next;
+  }
+}
+
+int main()
+{
+  //  ListNode* p;
+  //  ListNode* ans=mergeTwoLists(z, p);
+  //  printList(ans);
+  return 0;
+}
+  

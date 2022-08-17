@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool canJump(vector<int>& nums)
+{
+  int n = nums.size();
+  vector<int> Index0;
+  for(int i=0; i<n-1; i++){
+    if (nums[i]==0)
+      Index0.push_back(i);
+  }
+
+  for(auto i:Index0){
+    cout<<i<<' ';
+  }
+  return true;
+}
+int main()
+{
+  vector<int> nums ={2,3,1,1,4};
+  return 0;
+}

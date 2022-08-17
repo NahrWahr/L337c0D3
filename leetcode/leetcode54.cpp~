@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> spiralOrder(vector<vector<int>>& matrix)
+{
+  int m=matrix.size();
+  int n=matrix[0].size();
+  vector<int> vout;
+  
+  int dirx = 1;
+  int diry = 1;
+  
+  int i=0,j=0;
+  for(;i<m;i+=diry){
+    for(;j<n;j+=dirx){ // j<n -> j>-1 == -j<1
+      cout<<i<<j<<' ';
+    }
+    dirx *= -1;
+    j=-j;
+    n=1;
+    cout<<'\n';
+  }
+  return vout;
+}
+
+int main()
+{
+  vector<vector<int>> matrix={{1,2,3},{4,5,6},{7,8,9}};
+  spiralOrder(matrix);
+  return 0;
+}

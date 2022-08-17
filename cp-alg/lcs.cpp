@@ -1,25 +1,41 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void LcsAlgo(char *a, char *b){
-  int n=strlen(a);
-  int m=strlen(b);
-  cout<<n<<' '<<m;
+void PrintMatrix(vector<vector<int>> M)
+{
+  int m=M.size();
+  int n=M[0].size();
+  
+  for(int i=0;i<m;i++){
+    for(int j=0;j<n;j++){
+      cout <<M[i][j]<<' ';
+    }
+    cout<<'\n';
+  }
+}
 
-  int LcsTable[m+1][n+1];
+void LcsAlgo(char *a, char *b)
+{
+  int m=strlen(a);
+  int n=strlen(b);
+  //  cout<<m<<' '<<n<<'\n';
 
-  for(int i;i<=m;i++){
-    for(int j;j<=n;j++){
+  vector<vector<int>> LcsMatrix(m+1,vector<int>(n+1));
+  
+  for(int i=0;i<=m;i++){
+    for(int j=0;j<=n;j++){
       if(i==0 || j==0)
-	LcsTable[i][j]=0;
+	LcsMatrix[i][j]=0;
       else if(a[i-1]==b[j-1])
-	LcsTable[i][j]=LcsTable[i-1][j-1]+1;
+	LcsMatrix[i][j]=LcsMatrix[i-1][j-1]+1;
       else
-	LcsTable[i][j]=max(LcsTable[i-1][j],LcsTable[i][j-1]);
+	LcsMatrix[i][j]=max(LcsMatrix[i-1][j],LcsMatrix[i][j-1]);
     }
   }
 
-  int index=LcsTable[m][n];
+  PrintMatrix(LcsMatrix);
+
+  int index=LcsMatrix[m][n];
   char LcsAlgo[index+1];
   LcsAlgo[index]='\0';
 
@@ -31,7 +47,7 @@ void LcsAlgo(char *a, char *b){
       j--;
       index--;
     }
-    else if(LcsTable[i-1][j]>LcsTable[i][j-1])
+    else if(LcsMatrix[i-1][j]>LcsMatrix[i][j-1])
       i--;
     else
       j--;
@@ -41,8 +57,8 @@ void LcsAlgo(char *a, char *b){
 
 int main()
 {
-  char a[] = "acbcbbcca";
-  char b[] = "ababaaccb";
+  char a[] = "1234";
+  char b[] = "134";
   LcsAlgo(a,b);
   return 0;
 }
