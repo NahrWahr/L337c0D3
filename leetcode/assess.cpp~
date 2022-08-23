@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<vector<int>> updateMatrix(vector<vector<int>>& M)
+{
+  int m=M.size(), n=M[0].size();
+}
+
+int main()
+{
+  int nc=0;
+  cin >> nc;
+
+  while(nc--){
+    int n=0;
+    cin >> n;
+    vector<int> x(n);
+    for(int i=0;i<n;i++){
+      cin >> x[i];
+    }
+
+    beauty(x,n);
+  }
+  
+  return 0;
+}

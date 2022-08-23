@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int beauty(vector<int> v){
+  int b=0;
+  return b;
+}
+
+int main()
+{
+  int ncases;
+  cin >> ncases;
+
+  vector<vector<int>>tcases(ncases);
+  for (int i = 0; i < ncases; i++){
+    int vlen;
+    cin>>vlen;
+    vector<int> v(vlen);
+    for(int j=0;j<vlen;j++){
+      cin>>v[j];
+    }
+  }
+
+  for(vector<int> v:tcases){
+  }
+  
+  return 0;
+}
