@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+struct ListNode {
+  int val;
+  ListNode *next;
+  ListNode() : val(0), next(nullptr) {}
+  ListNode(int x) : val(x), next(nullptr) {}
+  ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+ListNode* removeElements(ListNode *h, int v)
+{
+  ListNode *p=h;
+  while(h!=NULL){
+    if(h->val==v){
+      h=h->next;
+      continue;
+    }
+    h=h->next;
+  }
+  return p;
+}
+
+int main()
+{
+  vector<int> x={1,1,2,2,1,1,2,2,1,2,1,2,2,1,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9};
+  
+  return 0;
+}
