@@ -3,15 +3,23 @@ using namespace std;
 
 int removeDuplicates(vector<int> &x)
 {
-  int j=0, t=INT_MAX;
-  for(int i:x){
-    if(t==i){
+  int j=0, n=x.size(), t1=INT_MAX;
+  
+  for(int i=0;i<n;){
+    if(t1==x[i]){
+      i++;
       continue;
-    }
+      }
     else{
-      x[j]=i;
+      x[j]=x[i];
+      t1=x[i];
       j++;
-      t=i;
+      i++;
+    }
+    if(i>=n) break;
+    if(x[i]==t1){
+	x[j]=x[i];
+	j++;
     }
   }
   return j;
@@ -19,7 +27,7 @@ int removeDuplicates(vector<int> &x)
 
 int main()
 {
-  vector<int> x={1,2,1,2,1,1,2,3,3,1,2,3,1};
+  vector<int> x={1};
   sort(x.begin(),x.end());
   for(int i:x){
     cout<<i<<' ';
