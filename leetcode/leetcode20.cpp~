@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+char opposite(char c)
+{
+  
+}
+
+
+bool isValid(string s) {
+  stack<char> par;
+  for(char c: s){
+    if(par.empty())
+      par.push(c);
+    else if(par.top() == c)
+      par.pop();
+    else
+      par.push(c);
+    cout<<par.top()<<'\n';
+  }
+      
+  if(par.empty())
+    return true;
+  else
+    return false;
+}
+
+int main()
+{
+  return 0;
+}
