@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int maxProduct(vector<int> &x)
+{
+  int prod;
+  return prod;
+}
+
+int main()
+{
+  int n=10;
+  vector<int> x(n);
+  for(int i=0;i<n;i++){
+    x[i]=rand()%10;
+  }
+  return 0;
+}

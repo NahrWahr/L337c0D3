@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int remColor(vector<int> x)
+{
+  int ind=0;
+  ind = max_element(x.begin(), x.end()) - x.begin();
+  return ind+1;
+}
+
+int main()
+{
+  int n;
+  cin>>n;
+  while(n--){
+    
+  }
+  return 0;
+}
