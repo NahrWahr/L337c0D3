@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isPalindrome(string s)
+{
+  string clean;
+  for(char c:s){
+    if(c==' ')
+      continue;
+    clean+=c;
+  }
+}
+
+int main()
+{
+  string s="Raca a Car";
+  
+  return 0;
+}

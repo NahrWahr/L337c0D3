@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int firstUniqChar(string s)
+{
+  unordered_map<char, int> mem;
+  for(char c:s){
+    mem[c]++;
+  }
+  for(auto p:mem){
+    if(p.second==1){
+      int ind = find(s.begin(), s.end(), p.first)-s.begin();
+      return ind;
+    }
+  }
+  return -1;
+}
+
+int main()
+{
+  return 0;
+}

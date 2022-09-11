@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void reverseString(vector<char>& s)
+{
+  int l=s.size();
+  for(int i=0;i<l/2;i++){
+    swap(s[i],s[l-i-1]);
+  }
+}
+
+int main()
+{
+  string s="Ding Dong FUCK";
+  cout<<s<<'\n';
+  reverseString(s);
+  cout<<s;
+  return 0;
+}

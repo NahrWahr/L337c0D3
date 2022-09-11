@@ -12,21 +12,37 @@ struct ListNode
 
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
 {
-  int carry = 0;
-  int sum = 0;
-  sum = (l1->val + l2->val);
-  int NewVal = sum%10;
-  carry = sum/10;
-  return 0;
+  ListNode *res= new ListNode();
+  ListNode *ret = res;
+
+  int c=0;
+  while(l1 || l2){
+    ListNode *tmp = new ListNode();
+    int v=c;
+    
+    if(l1){
+      v+=l1->val;
+      l1=l1->next;
+    }
+    
+    if(l2){
+      v+=l2->val;
+      l2=l2->next;
+    }
+    
+    tmp->val = v%10;
+    c = v/10;
+    res->next=tmp;
+    res=res->next;
+  }
+  
+  if(c)
+    res->next=new ListNode(1, NULL);
+  
+  return ret->next;
 }
     
   
 int main(){
-  vector<int> l1 = {1, 1, 1, 1};
-  vector<int> l2 = {1, 1, 1, 1};
-  vector<int> ans;
-  for (auto n : ans){
-    cout << n << " ";
-  }
   return 0;
 }

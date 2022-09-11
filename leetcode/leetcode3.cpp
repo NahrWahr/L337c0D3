@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int lengthOfLongestSubstring(string s)
+{
+  int i=0, j=0, gm=0;
+  int l=s.length();
+  unordered_set<char> mem;
+
+  while(i<l && j<l){
+    if(mem.find(s[j]) == mem.end()){
+      mem.insert(s[j]);
+      j++;
+      gm=max(gm, j-i);
+    }
+    else{
+      mem.erase(s[i]);
+      i++;
+    }
+  }
+  
+  return gm;
+}
+  
+int main(){
+  string s="abcdqeab";
+  cout<<lengthOfLongestSubstring(s);
+  return 0;
+}
