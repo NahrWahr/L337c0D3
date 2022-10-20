@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v){
+  for(int i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m){
+  for(vector<int> v:m){
+    printV(v);
+  }
+}
+
+vector<vector<int>> subsetsWithDup(vector<int>& x)
+{
+  vector<vector<int>> res = {{}};
+  int n = x.size();
+  for(int i=0;i<n;i++){
+    if(i>0 && x[i]==x[i-1])
+      continue;
+    int l = res.size();
+    for(int j=0;j<l;j++){
+      vector<int> tmp = res[j];
+      tmp.push_back(i);
+      res.push_back(tmp);
+    }
+  }
+  return res;
+}
+
+int main()
+{
+  return 0;
+}

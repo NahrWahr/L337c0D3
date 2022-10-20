@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v){
+  for(int i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m){
+  for(vector<int> v:m){
+    printV(v);
+  }
+}
+
+vector<vector<int>> generateMatrix(int n)
+{
+  vector<vector<int>> res(n, vector<int> (n));
+  int r=0,c=0,rv=0,cv=1;
+  for(int i=1;i<=n*n;i++){
+    if(c==n-1){
+      cv = 0;
+      rv = 1;
+    }
+    if(r==n-1){
+      
+    }
+    if(res[r][c] == 0){
+      res[r][c] = i;
+    }
+    r += rv;
+    c += cv;
+  }
+  return res;
+}
+
+int main()
+{
+  return 0;
+}

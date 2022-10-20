@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v){
+  for(int i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m){
+  for(vector<int> v:m){
+    printV(v);
+  }
+}
+
+vector<int> M;
+
+int dp(vector<int> &x, int i)
+{
+  if(i >= (int) x.size())
+    return 0;
+
+  if(M[i] != 0)
+    return M[i];
+  
+  M[i] = max(x[i] + dp(x, i+2), dp(x, i+1));
+  printV(M);
+  return M[i];
+}
+
+int rob(vector<int> &x)
+{
+  int n = x.size();
+  M.resize(n);
+
+  return dp(x, 0);
+}
+
+int main()
+{
+  vector<int> x = {1,23,2,3,5,21};
+  cout<<rob(x);
+  return 0;
+}

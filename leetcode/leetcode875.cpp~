@@ -14,20 +14,19 @@ void printM(vector<vector<int>> m){
   }
 }
 
-int strStr(string h, string n) {
-  int hl=h.length(), nl=n.length();
-  for(int i=0;i<hl-nl+1;i++){
-    string tmp=h.substr(i,nl);
-    if(tmp == n){
-      return i;
+int minEatingSpeed(vector<int> &p, int h)
+{
+  int n = p.size();
+  int k=4,h=0;
+  for(int i=0;i<n;i++){
+    while(p[i]>0){
+      h++;
+      p[i]-=k;
     }
   }
-  return -1;
 }
 
 int main()
 {
-  string h="abcadfa", n="cadfa";
-  cout<<strStr(h,n);
   return 0;
 }

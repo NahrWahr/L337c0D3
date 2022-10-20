@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v){
+  for(int i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m){
+  for(vector<int> v:m){
+    printV(v);
+  }
+}
+
+vector<vector<int>> kSum(vector<int> x, int k, int t, int start=0){
+  int n=x.size();
+  vector<vector<int>> res;
+  if(n<k)
+    return res;
+
+  if(k==2){
+    return twoSum(x, start, n-1, t);
+  }
+  else{
+    for(int i=start;i<n-(k-1);i++){
+      if(i>start && x[i] == x[i-1])
+	continue;
+
+      int ele=x[i];
+
+      int rem = t-x[i];
+
+      vector<vector<int>> smallKsum = kSum(x, k-1, rem, i+1);
+
+      for(vector<int> v:smallKsum){
+	v.push_back(ele);
+      }
+    }
+  }
+    
+}
+
+int main()
+{
+  return 0;
+}

@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v){
+  for(int i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m){
+  for(vector<int> v:m){
+    printV(v);
+  }
+}
+
+int threeSumClosest(vector<int> &x, int t)
+{
+  int n = x.size();
+  sort(x.begin(),x.end());
+
+  int minsum = INT_MAX;
+  for(int i=0;i<n-2;i++){
+    int l=i+1,r=n-1;
+    while(l<r){
+      int s = x[i] + x[l] + x[r];
+      minsum = min(minsum, abs(s-t));
+      if(s > t){
+	r--;
+      }
+      if(s < t){
+	l++;
+      }
+    }
+  }
+  
+  return minsum;
+}
+
+int main()
+{
+  vector<int> x = {-1,2,1,-4};
+  int t = 1;
+  cout<<threeSumClosest(x, t);
+  return 0;
+}

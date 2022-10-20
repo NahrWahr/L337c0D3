@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v){
+  for(int i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m){
+  for(vector<int> v:m){
+    printV(v);
+  }
+}
+
+struct Node
+{
+  int key;
+  int val;
+  Node *next, *prev;
+  Node(int k, int v) : key(k), val(v) {}
+};
+
+int main()
+{
+  return 0;
+}

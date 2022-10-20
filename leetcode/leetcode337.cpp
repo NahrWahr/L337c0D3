@@ -14,20 +14,18 @@ void printM(vector<vector<int>> m){
   }
 }
 
-int strStr(string h, string n) {
-  int hl=h.length(), nl=n.length();
-  for(int i=0;i<hl-nl+1;i++){
-    string tmp=h.substr(i,nl);
-    if(tmp == n){
-      return i;
-    }
+int robc(vector<int> &x, int s, int f)
+{
+  int dp0 = 0, dp1 = 0, dp2 = 0;
+  for(int i=f-1;i>=s; i--){
+    dp0 = max(dp1, x[i] + dp2);
+    dp2 = dp1;
+    dp1 = dp0;
   }
-  return -1;
+  return dp0;
 }
 
 int main()
 {
-  string h="abcadfa", n="cadfa";
-  cout<<strStr(h,n);
   return 0;
 }

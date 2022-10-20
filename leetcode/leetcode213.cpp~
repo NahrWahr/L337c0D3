@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v){
+  for(int i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m){
+  for(vector<int> v:m){
+    printV(v);
+  }
+}
+
+int robcirc(vector<int> &x, int s, int e)
+{
+  // int n = x.size();
+  // vector<int> dp(n+2);
+  // for(int i=n-1;i>=0;i--){
+  //   dp[i] = max(dp[i+1], x[i]+dp[i+2]);
+  // }
+  // return dp[0];
+  
+  vector<int> dp(e-s+2);
+  for(int i=e-s;i>=0;i--){
+    dp[i] = max(dp[i+1], x[i]+dp[i+2]);
+  }
+  printV(dp);
+  return dp[s];
+}
+
+int rob(vector<int> &x)
+{
+  int n = x.size();
+
+  return max(robcirc(x, 0, n-2), robcirc(x, 1, n-1));
+}
+
+int main()
+{
+  vector<int> x = {1,2,3,1};
+  cout<<rob(x);
+  return 0;
+}

@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v){
+  for(int i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m){
+  for(vector<int> v:m){
+    printV(v);
+  }
+}
+
+string x, y;
+vector<vector<int>> M;
+
+int dp(int i, int j)
+{
+  if(i<0 || j<0)
+    return 0;
+
+  if(M[i][j] != 0)
+    return M[i][j];
+  
+  if(x[i] == y[j]){
+    M[i][j] = dp(i-1, j-1) + 1;
+    return M[i][j];
+  }
+  else{
+    M[i][j] = max(dp(i-1, j),
+		  dp(i, j-1));
+    return M[i][j];
+  }
+}
+
+int subseq(string a, string b)
+{
+  x = a, y = b;
+  int p = x.length();
+  int q = y.length();
+
+  M.resize(p, vector<int> (q, 0));
+
+  return dp(p-1, q-1);
+}
+
+int main()
+{
+  string a="bladdy bastard bitch";
+  string b="no ben chod u bladdy";
+  string p="welfug", q="woolfur";
+  cout<<subseq(a,b)<<'\n';
+  return 0;
+}

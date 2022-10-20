@@ -14,20 +14,21 @@ void printM(vector<vector<int>> m){
   }
 }
 
-int strStr(string h, string n) {
-  int hl=h.length(), nl=n.length();
-  for(int i=0;i<hl-nl+1;i++){
-    string tmp=h.substr(i,nl);
-    if(tmp == n){
-      return i;
-    }
+int uniquePaths(int r, int c)
+{
+  int res = 1;
+  int N = r+c-2;
+  int n = min(r,c) - 1;
+  for(int i=N, j = 1; i>n ; i--, j++){
+    res *= i;
+    res /= j;
   }
-  return -1;
+  return res;
 }
 
 int main()
 {
-  string h="abcadfa", n="cadfa";
-  cout<<strStr(h,n);
+  int m=3,n=7;
+  cout<<uniquePaths(m, n);
   return 0;
 }

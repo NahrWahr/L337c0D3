@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v){
+  for(int i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m){
+  for(vector<int> v:m){
+    printV(v);
+  }
+}
+
+bool search(vector<int> &x, int t)
+{
+  int n = x.size();
+  int k = 0;
+  for(int i=1;i<n;i++){
+    if(x[i] < x[i-1]){
+      k = i;
+    }
+  }
+  int l=0, r=n-1;
+  while(l<r){
+    int m = (l+r)/2;
+    if(x[(m+k)%n] == t)
+      return true;
+    else if(x[(m+k)%n] < t){
+      l = m;
+    }
+    else if(x[(m+k)%n] > t){
+      r = m;
+    }
+  }
+  return false;
+}
+
+int main()
+{
+  return 0;
+}

@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v){
+  for(int i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m){
+  for(vector<int> v:m){
+    printV(v);
+  }
+}
+
+bool comp(vector<int> e1, vector<int> e2)
+{
+  return e1[0] < e2[0];
+}
+
+int maxenv(vector<vector<int>> evs)
+{
+  sort(evs.begin(),evs.end(), comp);
+  int n = evs.size();
+  vector<int> dp(n,1);
+  for(int i=0;i<n;i++){
+    for(int j=0;j<i;j++){
+      if(evs[j][1] < evs[i][1]){
+	dp[i] = max(dp[i], dp[j] + 1);
+      }
+    }
+  }
+
+  return dp[n-1];
+}
+
+int main()
+{
+  return 0;
+}

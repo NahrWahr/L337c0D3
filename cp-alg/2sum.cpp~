@@ -14,20 +14,13 @@ void printM(vector<vector<int>> m){
   }
 }
 
-int strStr(string h, string n) {
-  int hl=h.length(), nl=n.length();
-  for(int i=0;i<hl-nl+1;i++){
-    string tmp=h.substr(i,nl);
-    if(tmp == n){
-      return i;
-    }
-  }
-  return -1;
+vector<vector<int>> twosum(vector<int> x)
+{
+  
 }
 
 int main()
 {
-  string h="abcadfa", n="cadfa";
-  cout<<strStr(h,n);
+  vector<int> x={1,23,3,52,1,23,4,56,32,1,2,4,123};
   return 0;
 }

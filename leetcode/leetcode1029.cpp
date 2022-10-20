@@ -14,20 +14,18 @@ void printM(vector<vector<int>> m){
   }
 }
 
-int strStr(string h, string n) {
-  int hl=h.length(), nl=n.length();
-  for(int i=0;i<hl-nl+1;i++){
-    string tmp=h.substr(i,nl);
-    if(tmp == n){
-      return i;
-    }
+int twoCitySchedCost(vector<vector<int>> &x)
+{
+  int cost=0;
+  int n = x.size();
+  vector<int> saving(n);
+  for(int i=0;i<n;i++){
+    saving[i] = x[i][1] - x[i][0];
   }
-  return -1;
+  return cost;
 }
 
 int main()
 {
-  string h="abcadfa", n="cadfa";
-  cout<<strStr(h,n);
   return 0;
 }

@@ -14,20 +14,23 @@ void printM(vector<vector<int>> m){
   }
 }
 
-int strStr(string h, string n) {
-  int hl=h.length(), nl=n.length();
-  for(int i=0;i<hl-nl+1;i++){
-    string tmp=h.substr(i,nl);
-    if(tmp == n){
-      return i;
-    }
+int nthUglyNumber(int n)
+{
+  vector<int> k={1};
+  int p=0,q=0;
+  
+  while(n--){
+    int tmp = min(k[p]*2, k[q]*3);
+    k.push_back(tmp);
+    int i=k.back();
+    if(i/2==k[p]) p++;
+    if(i/3==k[q]) q++;
   }
-  return -1;
+  
+  return k.back();
 }
 
 int main()
 {
-  string h="abcadfa", n="cadfa";
-  cout<<strStr(h,n);
   return 0;
 }

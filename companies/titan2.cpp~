@@ -14,20 +14,19 @@ void printM(vector<vector<int>> m){
   }
 }
 
-int strStr(string h, string n) {
-  int hl=h.length(), nl=n.length();
-  for(int i=0;i<hl-nl+1;i++){
-    string tmp=h.substr(i,nl);
-    if(tmp == n){
-      return i;
-    }
+int func(vector<int> &c, vector<int> &d)
+{
+  int m = c.size();
+  int n = d.size();
+
+  for(int i=0;i<n;i++){
+    c[i%m] -= d[i];
   }
-  return -1;
 }
 
 int main()
 {
-  string h="abcadfa", n="cadfa";
-  cout<<strStr(h,n);
+  vector<int> c = {13,24,7,9,13,22};
+  vector<int> d = {2,3,4,1,3,1,4,5,3,7,1,3};
   return 0;
 }

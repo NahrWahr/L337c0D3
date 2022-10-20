@@ -14,20 +14,20 @@ void printM(vector<vector<int>> m){
   }
 }
 
-int strStr(string h, string n) {
-  int hl=h.length(), nl=n.length();
-  for(int i=0;i<hl-nl+1;i++){
-    string tmp=h.substr(i,nl);
-    if(tmp == n){
-      return i;
-    }
-  }
-  return -1;
+int size;
+list<int> lru;
+unordered_map<int,list<int>> mp;
+unordered_map<int,int> hsh;
+
+LRUCache(int capacity) : size(capacity)) {}
+
+int get(int k)
+{
+  if(hsh.find(k) == hsh.end())
+    return -1;
 }
 
 int main()
 {
-  string h="abcadfa", n="cadfa";
-  cout<<strStr(h,n);
   return 0;
 }

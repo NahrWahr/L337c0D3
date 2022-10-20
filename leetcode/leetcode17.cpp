@@ -14,20 +14,20 @@ void printM(vector<vector<int>> m){
   }
 }
 
-int strStr(string h, string n) {
-  int hl=h.length(), nl=n.length();
-  for(int i=0;i<hl-nl+1;i++){
-    string tmp=h.substr(i,nl);
-    if(tmp == n){
-      return i;
-    }
+vector<string> letterCombinations(string d)
+{
+  map<int,vector<char>> d2c;
+  vector<string> ret;
+  for(char c:d){
+    string tmp;
+
+    ret.push_back(tmp);
   }
-  return -1;
+
+  return ret;
 }
 
 int main()
 {
-  string h="abcadfa", n="cadfa";
-  cout<<strStr(h,n);
   return 0;
 }
