@@ -1,26 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int reverse(int x){
-  int ans = 0;
-  int sign = (x<0) ? -1 : 1;
-  x = abs(x);
-  
-  while (x>0){
-    ans = ans*10 + x%10;
-    x /= 10;
-  }
-  return sign*ans;
-}
-
-struct Node
-{
-  int data;
-  struct Node *next;
+struct LN{
+  int val;
+  LN *next;
+  LN() : val(0), next(nullptr) {}
+  LN(int x) : val(x), next(nullptr) {}
+  LN(int x, LN *n) : val(x), next(n) {}
 };
 
 int main(){
-  int x = -123;
-  cout << reverse(x);
+  int n = 10;
+  auto *list = new LN(n);
+
+  auto iter = list;
+  while(n--){
+    auto *tmp = new LN(n);
+    iter->next = tmp;
+    iter = iter->next;
+  }
+
+  while(list){
+    cout<<list->val<<' ';
+    list = list->next;
+  }
   return 0;
 }

@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v){
+  for(int i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m){
+  for(vector<int> v:m){
+    printV(v);
+  }
+}
+
+int minimumTotal(vector<vector<int>>& t, int res = 0, int h = 0, int i = 0)
+{
+  if(h>=(int)t.size() || i<0 || i>h)
+    return INT_MAX;
+
+  res = min(minimumTotal(t, t[h][i-1], h+1),
+	    min(minimumTotal(t, t[h][i], h+1),
+		minimumTotal(t, t[h][i+1], h+1));
+  return res;
+}
+
+int main()
+{
+  return 0;
+}

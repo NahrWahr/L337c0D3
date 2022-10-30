@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v){
+  for(int i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m){
+  for(vector<int> v:m){
+    printV(v);
+  }
+}
+
+bool canPartitionKsubsets(vector<int> &x, int k)
+{
+  int n = x.size();
+  sort(x.begin(),x.end());
+  int sum = reduce(x.begin(),x.end(), 0);
+  int part = sum/k;
+  if(sum%k || x.back()>part) return false;
+}
+
+int main()
+{
+  return 0;
+}

@@ -24,14 +24,28 @@ struct ListNode {
 
 ListNode* rotateRight(ListNode* h, int k)
 {
-  ListNode* tmp = h;
-  ListNode* ret;
-  while(k--){
-    h=h->next;
-  }
-  
+  if(!h || !h->next)
+    return h;
 
-  return ret;
+  auto tmp = h;
+  int l = 1;
+  while(tmp->next){
+    tmp = tmp->next;
+    l++;
+  }
+
+  tmp->next = h;
+  tmp = h;
+
+  int rot = l-(k%l)-1;
+  for(int i=0;i<rot;i++){
+    tmp = tmp->next;
+  }
+
+  h = tmp->next;
+
+  tmp->next = nullptr;
+  return h;
 }
 
 int main()

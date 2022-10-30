@@ -17,6 +17,7 @@ void printM(vector<vector<int>> m){
 int ks(int w, vector<int> wt, vector<int> v)
 {
   int n = wt.size();
+
   vector<int> dp(w+1);
   for(int i=0;i<n;i++){
     for(int j=w;j>=0;j--){

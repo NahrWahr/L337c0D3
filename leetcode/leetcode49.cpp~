@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v){
+  for(int i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m){
+  for(vector<int> v:m){
+    printV(v);
+  }
+}
+
+vector<vector<string>> groupAnagrams(vector<string>& strs)
+{
+  int n = strs.size();
+}
+
+int main()
+{
+  return 0;
+}
