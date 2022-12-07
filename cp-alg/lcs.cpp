@@ -22,11 +22,9 @@ void LcsAlgo(char *a, char *b)
 
   vector<vector<int>> LcsMatrix(m+1,vector<int>(n+1));
   
-  for(int i=0;i<=m;i++){
-    for(int j=0;j<=n;j++){
-      if(i==0 || j==0)
-	LcsMatrix[i][j]=0;
-      else if(a[i-1]==b[j-1])
+  for(int i=1;i<=m;i++){
+    for(int j=1;j<=n;j++){
+      if(a[i-1]==b[j-1])
 	LcsMatrix[i][j]=LcsMatrix[i-1][j-1]+1;
       else
 	LcsMatrix[i][j]=max(LcsMatrix[i-1][j],LcsMatrix[i][j-1]);

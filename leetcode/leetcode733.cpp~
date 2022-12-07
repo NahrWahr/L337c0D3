@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v)
+{for(auto i:v) cout<<i<<' '; cout<<'\n';}
+void printM(vector<vector<int>> m)
+{for(auto v:m) printV(v);}
+
+int m,n;
+vector<vector<bool>> visited;
+
+vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color)
+{
+  m=image.size(), n=image[0].size();
+  visited.resize(m, vector<int> (n));
+}
+
+int main()
+{
+  return 0;
+}

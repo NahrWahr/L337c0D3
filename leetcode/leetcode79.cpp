@@ -14,25 +14,59 @@ void printM(vector<vector<int>> m){
   }
 }
 
-bool exist(vector<vector<char>> &b, string w)
-{
-  int m=b.size(), n=b[0].size();
-  vector<vector<int>> dp(n, vector<int> (n));
+vector<vector<char>> b;
+string w;
+int m,n,l;
 
-  unordered_set<char> s;
-  for(char c:w){
-    s.insert(c);
-  }
+bool dfs(int i, int j, vector<vector<bool>> vis, string cur = "")
+{
+  if(i<0 || i>=m || j<0 || j>=n ||
+     vis[i][j] ||
+     cur.size() > w.size() ||
+     cur != w.substr(0, cur.size()))
+    return false;
   
-  for(int i=0;i<n;i++){
+  cur+=b[i][j];
+  vis[i][j] = true;
+  if(cur == w)
+    return true;
+
+    
+  return
+    dfs(i+1,j,vis,cur) ||
+    dfs(i,j+1,vis,cur) ||
+    dfs(i-1,j,vis,cur) ||
+    dfs(i,j-1,vis,cur);
+}
+
+bool exist(vector<vector<char>> &board, string word)
+{
+  b = board;
+  w = word;
+  m=b.size(), n=b[0].size(), l=w.size();
+  
+  for(int i=0;i<m;i++){
     for(int j=0;j<n;j++){
-      if(s.find(b[i][j]) != s.end())
-	dp[i][j] = 1;
+      vector<vector<bool>> vis(m, vector<bool>(n,0));
+      if(dfs(i,j,vis))
+	return true;
     }
   }
+  return false;
 }
 
 int main()
 {
+  vector<vector<char>> board =   {
+    {'a','a','b','a','a','b'},
+    {'a','a','b','b','b','a'},
+    {'a','a','a','a','b','a'},
+    {'b','a','b','b','a','b'},
+    {'a','b','b','a','b','a'},
+    {'b','a','a','a','a','b'}
+  };
+
+  string word = "bbbaabbbbbab";
+  cout<<exist(board, word);
   return 0;
 }

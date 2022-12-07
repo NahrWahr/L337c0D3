@@ -14,35 +14,22 @@ void printM(vector<vector<int>> m){
   }
 }
 
-void setZeroes(vector<vector<int>> &m)
+void setZeroes(vector<vector<int>> &M)
 {
-  printM(m);
-  cout<<'\n';
-  int i00=1;
-  int p=m.size(), q=m[0].size();
-  for(int i=0;i<p;i++){
-    if(m[i][0]==0)
-      i00=0;
-    for(int j=0;j<q;j++){
-      if(m[i][j]==0){
-	m[i][0]=0;
-	m[0][j]=0;
-      }
+  int m = M.size(), n = M[0].size();
+  vector<bool> r = vector<bool> (m), c = vector<bool> (n);
+  for(int i=0;i<m;i++){
+    for(int j=0;j<n;j++){
+      if(M[i][j] == 0)
+	r[i] = c[j] = true;
     }
   }
-  printM(m);
-  cout<<'\n';
-
-  for(int i=1;i<p;i++){
-    for(int j=1;j<q;j++){
-      if(m[i][0]==0 || m[0][j]==0){
-	m[i][j]=0;
-      }
+  for(int i=0;i<m;i++){
+    for(int j=0;j<n;j++){
+      if(r[i] || c[j])
+	M[i][j] = 0;
     }
-    if(i00==0) m[i][0]=0;
   }
-  printM(m);
-  cout<<'\n';
 }
 
 int main()
@@ -51,7 +38,10 @@ int main()
     {{0,1,1,1},
      {1,1,0,1},
      {1,1,1,1}};
+
+  printM(m);
   setZeroes(m);
+  printM(m);
   
   return 0;
 }

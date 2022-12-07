@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v)
+{
+  for(auto i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m)
+{
+  for(auto v:m){
+    printV(v);
+  }
+}
+
+vector<string> split(string s)
+{
+  int n = s.size();
+  vector<string> res={""};
+  for(int i=0;i<n;i++){
+    if(s[i] == ' ')
+      res.push_back("");
+    res.end()+=s[i];
+  }
+  return res;
+}
+
+string reverseWords(string s) {
+  int n = s.size(), i=0, j=0;
+  for(i=0;i<n;i++){
+    if(s[i] != ' ')
+      continue;
+    reverse(s.begin()+j, s.begin()+i);
+    j = i;
+  }
+  reverse(s.begin()+j, s.begin()+i);
+  return s;
+}
+
+int main()
+{
+  string s = "the sky is blue";
+  return 0;
+}

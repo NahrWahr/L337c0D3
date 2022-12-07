@@ -1,0 +1,58 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v){
+  for(int i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m){
+  for(vector<int> v:m){
+    printV(v);
+  }
+}
+
+bool stuck(vector<vector<int>>& g, int r, int c)
+{
+  int n=g[0].size();
+  if(c + g[r][c]>n || c + g[r][c]<0)
+    return true;
+  if(g[r][c + g[r][c]] != g[r][c])
+    return true;
+  else
+    return false;
+}
+
+vector<int> findBall(vector<vector<int>>& g)
+{
+  int m=g.size(),n=g[0].size();
+  vector<int> ans(n);
+  for(int c=0;c<n;c++){
+    int r = 0;
+    int tc = c;
+    while(!stuck(g,r,tc) && r++<m){
+      tc+=g[r][tc];
+    }
+    cout<<r;
+    if(r==m-1)
+      ans[c] = 1;
+    else
+      ans[c] = -1;
+  }
+
+  return ans;
+}
+
+int main()
+{
+  vector<vector<int>> g ={
+    {1,1,1,-1},
+    {1,1,1,-1},
+    {-1,-1,-1,1}
+  };
+  cout<<stuck(g,2,2)<<'\n';
+  for(int i:findBall(g)) cout<<i<<' ';
+  return 0;
+}

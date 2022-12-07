@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v)
+{
+  for(auto i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m)
+{
+  for(auto v:m){
+    printV(v);
+  }
+}
+
+int n = 0;
+vector<string> res;
+
+void helper(string s)
+{
+  if((int) s.length() == n){
+    res.push_back(s);
+    return;
+  }
+    
+}
+
+vector<string> generateParenthesis(int n)
+{
+  
+}
+
+int main()
+{
+  return 0;
+}

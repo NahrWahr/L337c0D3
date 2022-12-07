@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void printV(vector<int> v)
+{
+  for(auto i:v){
+    cout<<i<<' ';
+  }
+  cout<<'\n';
+}
+
+void printM(vector<vector<int>> m)
+{
+  for(auto v:m){
+    printV(v);
+  }
+}
+
+vector<vector<int>> conv(vector<vector<char>> &in)
+{
+  int m=in.size(),n=in[0].size();
+  vector<vector<int>> board(m, vector<int> (n));
+  for(int i=0;i<m;i++){
+    for(int j=0;j<n;j++){
+      board[i][j] = (int) in[i][j] - '0';
+    }
+  }
+  return board;
+}
+
+bool isValidSudoku(vector<vector<char>> &in)
+{
+  auto b = conv(in);
+}
+
+int main()
+{
+  return 0;
+}
